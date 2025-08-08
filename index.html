@@ -52,31 +52,6 @@
       <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     </section>
   </div>
-
-  <script>
-    // Splash fade out and main content fade in
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const splash = document.getElementById('splash');
-        const main = document.getElementById('mainContent');
-
-        splash.classList.add('fade-out');
-        setTimeout(() => {
-          splash.style.display = 'none';
-          main.classList.remove('hidden');
-          main.classList.add('fade-in');
-        }, 1000);
-      }, 3000);
-    });
-
-    // Smooth scroll on nav clicks
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
