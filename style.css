@@ -212,6 +212,34 @@ main {
   opacity: 1 !important;
   transition: opacity 1.5s ease;
 }
+/* Dynamic page switch base */
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 6rem; /* Leave room for toolbar */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateX(20px);
+  z-index: 0;
+}
+
+/* When active */
+.page.active-page {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  z-index: 1;
+}
+
+/* Prevent flashing before JS loads */
+#mainContent {
+  position: relative;
+  overflow: hidden;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
