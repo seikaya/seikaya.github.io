@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
       toolbar.style.opacity = '1';
       toolbar.style.pointerEvents = 'auto';
 
-      pages.forEach(page => page.style.opacity = '1');
+      //pages.forEach(page => page.style.opacity = '1');
 
       // Show main content and toolbar with fade-in
       mainContent.classList.remove('hidden');
