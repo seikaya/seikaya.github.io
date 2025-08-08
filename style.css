@@ -213,6 +213,7 @@ main {
   opacity: 1 !important;
   transition: opacity 1.5s ease;
 }
+
 /* Dynamic page switch base */
 .page {
   position: absolute;
