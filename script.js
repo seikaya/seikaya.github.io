@@ -1,43 +1,35 @@
-// Splash screen logic
 window.addEventListener('load', () => {
   const splash = document.getElementById('splash');
-  const main = document.getElementById('mainContent');
-  const toolbar = document.querySelector('.toolbar');
+  const mainContent = document.getElementById('mainContent');
+  const toolbar = document.getElementById('toolbar');
 
-  // Start fade-in on splash
-  splash.classList.add('fade-in');
-
-  // Start fading out after a short delay
+  // Show splash for 3 seconds then fade out
   setTimeout(() => {
-    splash.classList.remove('fade-in');
     splash.classList.add('fade-out');
 
-    // After fade duration (match CSS!), hide splash and show main content
-    splash.addEventListener("transitionend", () => {
-      splash.style.display = "none";
-      main.classList.remove("hidden");
-      main.classList.add("fade-in");
-      toolbar.classList.remove("hidden");
-    }, { once: true });
+    splash.addEventListener('transitionend', () => {
+      splash.style.display = 'none';
 
-  }, 2500); // Splash stays visible for 2.5 seconds
+      // Show main content and toolbar with fade-in
+      mainContent.classList.remove('hidden');
+      mainContent.classList.add('fade-in');
+
+      toolbar.classList.remove('hidden');
+      setTimeout(() => {
+        toolbar.classList.add('visible');
+      }, 100); // tiny delay for smooth fade
+    }, { once: true });
+  }, 3000);
 });
 
-// Smooth scroll for nav links
+// Smooth scrolling for nav links
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    const targetId = link.getAttribute('href').substring(1);
-    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+    const targetId = link.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if(target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
-});
-
-// Toolbar visibility on scroll
-window.addEventListener('scroll', () => {
-  const toolbar = document.querySelector('.toolbar');
-  if (window.scrollY > 100) {
-    toolbar.classList.add('visible');
-  } else {
-    toolbar.classList.remove('visible');
-  }
 });
