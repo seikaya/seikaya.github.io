@@ -1,21 +1,8 @@
+/* Orbitron is loaded from Google Fonts via <link> in HTML head:
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+*/
+
 /* Reset */
-@font-face {
-  font-family: 'Mechasuit';
-  src: url('fonts/Mechasuit.woff2') format('woff2'),
-       url('fonts/Mechasuit.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-.logo {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 5rem;
-  color: #ff1a1a;
-  text-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff0000cc;
-  user-select: none;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +11,7 @@
 
 /* Body & background */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Orbitron', sans-serif;
   background: linear-gradient(135deg, #1a0000, #330000);
   color: #ff3b3b;
   overflow-x: hidden;
@@ -60,6 +47,15 @@ body {
 .fade-in {
   display: block !important;
   opacity: 1 !important;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 5rem;
+  color: #ff1a1a;
+  text-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff0000cc;
+  user-select: none;
 }
 
 /* Navbar */
