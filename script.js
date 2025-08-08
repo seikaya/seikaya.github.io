@@ -7,16 +7,8 @@ window.addEventListener('load', () => {
   // Show splash for 3 seconds then fade out
   setTimeout(() => {
     splash.classList.add('fade-out');
-
     splash.addEventListener('transitionend', () => {
       splash.style.display = 'none';
-      
-      mainContent.style.display = 'block';
-      mainContent.style.opacity = '1';
-      toolbar.style.opacity = '1';
-      toolbar.style.pointerEvents = 'auto';
-
-      //pages.forEach(page => page.style.opacity = '1');
 
       // Show main content and toolbar with fade-in
       mainContent.classList.remove('hidden');
@@ -39,7 +31,6 @@ window.addEventListener('load', () => {
 
       // Remove active class from all pages
       pages.forEach(page => page.classList.remove('active'));
-
       // Add active class to target page
       targetPage.classList.add('active');
     });
