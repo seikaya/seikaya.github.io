@@ -12,7 +12,7 @@
 /* Body & background */
 body {
   font-family: 'Orbitron', sans-serif;
-  background: url('images/bg.jpg') no-repeat center center fixed;
+  background: url('webart/space.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #ffffff;
   overflow-x: hidden;
@@ -113,6 +113,41 @@ body {
   box-shadow: 0 0 10px #fff;
 }
 
+/* Toolbar (appears on scroll) */
+.toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 60px;
+  padding: 0 1.2rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  border-bottom-left-radius: 12px;
+  user-select: none;
+}
+
+.toolbar.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Toolbar logo */
+.toolbar-logo {
+  font-family: 'Goldman', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 15px #f0f;
+  cursor: default;
+  white-space: nowrap;
+}
+
 /* Sections */
 .section {
   padding: 8rem 2rem 4rem;
@@ -175,5 +210,15 @@ body {
 
   .splash .logo {
     font-size: 2.5rem;
+  }
+
+  /* Toolbar on mobile, smaller height and padding */
+  .toolbar {
+    height: 50px;
+    padding: 0 1rem;
+  }
+
+  .toolbar-logo {
+    font-size: 1.3rem;
   }
 }
