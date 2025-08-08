@@ -34,6 +34,7 @@ body {
 
 .splash.fade-out {
   opacity: 0;
+  transition: opacity 2s ease;
 }
 
 /* Hide main initially */
@@ -47,14 +48,15 @@ body {
 .fade-in {
   display: block !important;
   opacity: 1 !important;
+  transition: opacity 2s ease;
 }
 
 /* Logo */
 .logo {
   font-family: 'Orbitron', sans-serif;
   font-size: 5rem;
-  color: #ff1a1a;
-  text-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff0000cc;
+  color: #ffffff; /* Changed from red to white */
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f0f, 0 0 40px #f0f; /* Optional: white glow */
   user-select: none;
 }
 
