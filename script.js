@@ -31,10 +31,10 @@ window.addEventListener('load', () => {
       if (!targetPage) return;
 
       // Remove active class from all pages
-      pages.forEach(page => page.classList.remove('active-page'));
+      pages.forEach(page => page.classList.remove('active'));
 
       // Add active class to target page
-      targetPage.classList.add('active-page');
+      targetPage.classList.add('active');
     });
   });
 });
