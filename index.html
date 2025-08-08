@@ -4,59 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Seikaya</title>
-
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Goldman:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Splash Screen -->
-  <div id="splash">
+  <!-- Splash screen -->
+  <div id="splash" class="splash">
     <h1 class="splash-logo">SEIKAYA</h1>
   </div>
 
-  <!-- Main Content -->  
-  <div id="mainContent" class="hidden">
-    <div class="toolbar hidden">
+  <!-- Toolbar -->
+  <header id="toolbar" class="toolbar hidden">
     <div class="toolbar-logo">SEIKAYA</div>
-  </div>
-    <nav class="navbar">
-      <div class="navbar-logo">SEIKAYA</div>
-      <ul>
+    <nav>
+      <ul class="nav-links">
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#discography" class="nav-link">Discography</a></li>
-        <li><a href="#activity" class="nav-link">Activity</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
+  </header>
 
-    <section id="home" class="section">
-      <h2>Welcome to Seikaya’s world</h2>
-      <p>Producing Melodic Hardcore music, Game Dev, and Cyber Security.</p>
+  <!-- Main content -->
+  <main id="mainContent" class="hidden">
+    <!-- Hero with fixed blurred bg -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h2>Welcome to Seikaya’s World</h2>
+        <p>Producing Melodic Hardcore music, Game Dev, and Cyber Security.</p>
+      </div>
     </section>
 
-    <section id="about" class="section">
+    <!-- About section -->
+    <section id="about" class="content-section">
       <h2>About Me</h2>
-      <p>I’m Dani aka Seikaya — blending beats with code and cyber dreams.</p>
+      <p>I’m blending beats with code and cyber dreams.</p>
     </section>
 
-    <section id="discography" class="section">
+    <!-- Discography -->
+    <section id="discography" class="content-section">
       <h2>Discography</h2>
       <p>My latest tracks and releases.</p>
     </section>
 
-    <section id="activity" class="section">
-      <h2>Activity</h2>
-      <p>Recent projects and updates.</p>
-    </section>
-
-    <section id="contact" class="section">
+    <!-- Contact -->
+    <section id="contact" class="content-section">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     </section>
-  </div>
-  
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
