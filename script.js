@@ -1,4 +1,4 @@
-// Wait for page load
+// Wait for page loads
 window.addEventListener('load', () => {
   const splash = document.getElementById('splash');
   const main = document.getElementById('mainContent');
