@@ -2,6 +2,7 @@ window.addEventListener('load', () => {
   const splash = document.getElementById('splash');
   const mainContent = document.getElementById('mainContent');
   const toolbar = document.getElementById('toolbar');
+  const pages = document.querySelectorAll('.page');
 
   // Show splash for 3 seconds then fade out
   setTimeout(() => {
@@ -20,16 +21,20 @@ window.addEventListener('load', () => {
       }, 100); // tiny delay for smooth fade
     }, { once: true });
   }, 3000);
-});
 
-// Smooth scrolling for nav links
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const targetId = link.getAttribute('href').slice(1);
-    const target = document.getElementById(targetId);
-    if(target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+  // Dynamic page switching for nav links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').slice(1);
+      const targetPage = document.getElementById(targetId);
+      if (!targetPage) return;
+
+      // Remove active class from all pages
+      pages.forEach(page => page.classList.remove('active-page'));
+
+      // Add active class to target page
+      targetPage.classList.add('active-page');
+    });
   });
 });
