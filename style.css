@@ -8,6 +8,14 @@
   font-display: swap;
 }
 
+.logo {
+  font-family: 'Mechasuit', sans-serif;
+  font-size: 5rem;
+  color: #ff1a1a;
+  text-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff0000cc;
+  user-select: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -39,14 +47,6 @@ body {
 
 .splash.fade-out {
   opacity: 0;
-}
-
-.logo {
-  font-family: 'Mechasuit', sans-serif;
-  font-size: 5rem;
-  color: #ff1a1a;
-  text-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff0000cc;
-  user-select: none;
 }
 
 /* Hide main initially */
