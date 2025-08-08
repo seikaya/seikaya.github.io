@@ -1,27 +1,29 @@
-// Wait for page loads
+// Splash screen logic
 window.addEventListener('load', () => {
   const splash = document.getElementById('splash');
   const main = document.getElementById('mainContent');
   const toolbar = document.querySelector('.toolbar');
 
-  // Start fading splash after 3s
+  // Start fade-in on splash
+  splash.classList.add('fade-in');
+
+  // Start fading out after a short delay
   setTimeout(() => {
+    splash.classList.remove('fade-in');
     splash.classList.add('fade-out');
 
-    // After fade duration (2s), hide splash and show main content
-    setTimeout(() => {
-      splash.style.display = 'none';
-      main.classList.remove('hidden');
-      main.classList.add('fade-in');
+    // After fade duration (match CSS!), hide splash and show main content
+    splash.addEventListener("transitionend", () => {
+      splash.style.display = "none";
+      main.classList.remove("hidden");
+      main.classList.add("fade-in");
+      toolbar.classList.remove("hidden");
+    }, { once: true });
 
-      // Show toolbar once main content visible
-      toolbar.classList.remove('hidden');
-
-    }, 2000);
-  }, 3000);
+  }, 2500); // Splash stays visible for 2.5 seconds
 });
 
-// Smooth scroll on nav clicks
+// Smooth scroll for nav links
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -30,7 +32,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// Toolbar visibility on scroll: appear after 100px scroll
+// Toolbar visibility on scroll
 window.addEventListener('scroll', () => {
   const toolbar = document.querySelector('.toolbar');
   if (window.scrollY > 100) {
