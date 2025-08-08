@@ -1,18 +1,24 @@
-// Splash fade out and main content fade in
+// Wait for page load
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    const splash = document.getElementById('splash');
-    const main = document.getElementById('mainContent');
+  const splash = document.getElementById('splash');
+  const main = document.getElementById('mainContent');
+  const toolbar = document.querySelector('.toolbar');
 
+  // Start fading splash after 3s
+  setTimeout(() => {
     splash.classList.add('fade-out');
 
-    // Wait for fade-out to complete (match this to your CSS transition duration)
+    // After fade duration (2s), hide splash and show main content
     setTimeout(() => {
       splash.style.display = 'none';
       main.classList.remove('hidden');
       main.classList.add('fade-in');
-    }, 2000); // 2000ms = 2 seconds fade-out time
-  }, 3000); // Wait 3 seconds before starting the transition
+
+      // Show toolbar once main content visible
+      toolbar.classList.remove('hidden');
+
+    }, 2000);
+  }, 3000);
 });
 
 // Smooth scroll on nav clicks
@@ -22,4 +28,14 @@ document.querySelectorAll('.nav-link').forEach(link => {
     const targetId = link.getAttribute('href').substring(1);
     document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
   });
+});
+
+// Toolbar visibility on scroll: appear after 100px scroll
+window.addEventListener('scroll', () => {
+  const toolbar = document.querySelector('.toolbar');
+  if (window.scrollY > 100) {
+    toolbar.classList.add('visible');
+  } else {
+    toolbar.classList.remove('visible');
+  }
 });
