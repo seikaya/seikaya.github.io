@@ -10,6 +10,13 @@ window.addEventListener('load', () => {
 
     splash.addEventListener('transitionend', () => {
       splash.style.display = 'none';
+      
+      mainContent.style.display = 'block';
+      mainContent.style.opacity = '1';
+      toolbar.style.opacity = '1';
+      toolbar.style.pointerEvents = 'auto';
+
+      pages.forEach(page => page.style.opacity = '1');
 
       // Show main content and toolbar with fade-in
       mainContent.classList.remove('hidden');
