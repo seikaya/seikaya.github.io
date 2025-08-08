@@ -1,35 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Seikaya</title>
+
+  <!-- Mechasuit font from CDN -->
+  <link href="https://fonts.cdnfonts.com/css/mechasuit" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container fade-in">
-    <h1 class="name">Seikaya</h1>
-    <p class="bio">Producing Melodic Hardcore music, Game Dev, And cyber sec</p>
+  <!-- Splash Screen -->
+  <div id="splash" class="splash">
+    <h1 class="logo">Seikaya</h1>
+  </div>
 
-    <div class="links">
-      <a href="https://soundcloud.com/seikaya" target="_blank">SoundCloud</a>
-      <a href="https://www.youtube.com/@Seikaya" target="_blank">YouTube</a>
-      <a href="https://seikaya.bandcamp.com" target="_blank">Bandcamp</a>
-    </div>
+  <!-- Main Content -->
+  <div id="mainContent" class="hidden">
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#discography" class="nav-link">Discography</a></li>
+        <li><a href="#activity" class="nav-link">Activity</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
 
-    <div class="embed">
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-              title="YouTube video player" frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-      </iframe>
-    </div>
+    <section id="home" class="section">
+      <h2>Welcome to Seikaya’s world</h2>
+      <p>Producing Melodic Hardcore music, Game Dev, and Cyber Security.</p>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>I’m Dani aka Seikaya — blending beats with code and cyber dreams.</p>
+    </section>
+
+    <section id="discography" class="section">
+      <h2>Discography</h2>
+      <p>My latest tracks and releases.</p>
+    </section>
+
+    <section id="activity" class="section">
+      <h2>Activity</h2>
+      <p>Recent projects and updates.</p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    </section>
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("loaded");
+    // Splash fade out and main content fade in
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const splash = document.getElementById('splash');
+        const main = document.getElementById('mainContent');
+
+        splash.classList.add('fade-out');
+        setTimeout(() => {
+          splash.style.display = 'none';
+          main.classList.remove('hidden');
+          main.classList.add('fade-in');
+        }, 1000);
+      }, 3000);
+    });
+
+    // Smooth scroll on nav clicks
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
     });
   </script>
 </body>
