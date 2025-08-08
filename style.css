@@ -1,6 +1,6 @@
-/* Google Fonts note:
-Orbitron for content,
-Goldman for toolbar logo :3*/
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 /* Reset */
 * {
@@ -12,26 +12,26 @@ Goldman for toolbar logo :3*/
 /* Body & background */
 body {
   font-family: 'Orbitron', sans-serif;
-  background: url('images/your-background.jpg') no-repeat center center fixed;
+  background: url('images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #ffb3b3;
+  color: #ffffff;
   overflow-x: hidden;
-  min-height: 100vh;
-  /* smooth scrolling for anchors */
-  scroll-behavior: smooth;
+  transition: background 2s ease;
 }
 
 /* Splash Screen */
 .splash {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #000; /* black background for splash */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  z-index: 9999;
+  opacity: 1;
   transition: opacity 2s ease;
 }
 
@@ -40,58 +40,63 @@ body {
   pointer-events: none;
 }
 
-/* Splash Logo */
-.splash-logo {
+.splash .logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 5rem;
+  font-size: 4rem;
   color: #fff;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f0f, 0 0 40px #f0f;
   user-select: none;
 }
 
-/* Toolbar: fixed top bar */
-.toolbar {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  background-color: rgba(17, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid #ff1a1a;
-  padding: 0.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 9999;
+/* Hide main initially */
+.hidden {
+  display: none;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
+  transition: opacity 1.5s ease;
 }
 
-.toolbar.visible {
-  opacity: 1;
-  pointer-events: auto;
+.fade-in {
+  display: block !important;
+  opacity: 1 !important;
+  transition: opacity 2s ease;
 }
 
-/* Toolbar inner container */
-.toolbar-content {
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid #fff;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding: 0.6rem 1.2rem;
 }
 
-/* Navbar styles inside toolbar */
+.navbar .logo-text {
+  font-family: 'Goldman', sans-serif;
+  font-size: 1.8rem;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #f0f;
+}
+
 .navbar ul {
   display: flex;
   list-style: none;
+  gap: 1.5rem;
+  margin-right: 1rem;
 }
 
 .navbar li {
-  margin: 0 1rem;
+  margin: 0;
 }
 
 .navbar a {
-  color: #ff3b3b;
+  color: #fff;
   font-weight: 700;
   font-size: 1.1rem;
   text-decoration: none;
@@ -103,101 +108,72 @@ body {
 
 .navbar a:hover,
 .navbar a:focus {
-  background-color: #ff1a1a;
-  box-shadow: 0 0 10px #ff1a1a;
-}
-
-/* Toolbar logo on right */
-.toolbar-logo {
-  font-family: 'Goldman', cursive;
-  font-size: 2.5rem;
-  color: #ff3b3b;
-  user-select: none;
-  letter-spacing: 2px;
-}
-
-/* Main Content */
-main#mainContent {
-  margin-top: 4.5rem; /* avoid toolbar overlap */
-  padding: 2rem 1rem 6rem;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 10px #fff;
 }
 
 /* Sections */
 .section {
+  padding: 8rem 2rem 4rem;
   max-width: 900px;
-  margin: 3rem auto;
-  padding: 3rem 2rem;
-  background: rgba(34, 0, 0, 0.75);
+  margin: 0 auto 4rem auto;
   border-radius: 12px;
-  box-shadow: 0 0 15px #ff1a1aaa;
-  color: #ffb3b3;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
   min-height: 60vh;
 }
 
-/* Section headings */
 .section h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.4rem;
   margin-bottom: 1rem;
-  color: #ff1a1a;
-  text-shadow: 0 0 6px #ff0000cc;
+  color: #ffffff;
+  text-shadow: 0 0 8px #fff;
   user-select: none;
 }
 
-/* Section paragraphs */
 .section p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #ff9999;
+  color: #e6e6e6;
 }
 
-/* Links inside sections */
 .section a {
-  color: #ff4d4d;
+  color: #ddd;
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .section a:hover,
 .section a:focus {
-  color: #ff1a1a;
-}
-
-/* Hidden helper */
-.hidden {
-  display: none;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-/* Fade in */
-.fade-in {
-  display: block !important;
-  opacity: 1 !important;
-  transition: opacity 2s ease;
-}
-
-/* Fade out */
-.fade-out {
-  opacity: 0;
+  color: #fff;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .splash-logo {
-    font-size: 3.5rem;
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .toolbar-logo {
-    font-size: 1.8rem;
-  }
+
   .navbar ul {
     flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0 0 0;
   }
-  .navbar li {
-    margin: 0.3rem 0;
+
+  .navbar .logo-text {
+    font-size: 1.5rem;
   }
+
   .section {
-    padding: 2rem 1rem;
-    margin: 2rem 1rem;
+    padding: 6rem 1rem 3rem;
+  }
+
+  .splash .logo {
+    font-size: 2.5rem;
   }
 }
