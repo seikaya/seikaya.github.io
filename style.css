@@ -228,7 +228,7 @@ main {
 }
 
 /* When active */
-.page.active-page {
+.page.active {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
