@@ -139,8 +139,9 @@ main {
 }
 
 .hero-content {
+  color: #ff3b3b;
   position: relative;
-  z-index: 1;
+  z-index: 20;
   max-width: 900px;
   padding: 2rem;
   font-family: 'Goldman', sans-serif;
@@ -232,7 +233,8 @@ main {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
-  z-index: 1;
+  z-index: 10;
+  background-color: #120000; /* solid dark bg so text stands out */
 }
 
 /* Prevent flashing before JS loads */
