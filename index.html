@@ -1,62 +1,37 @@
-========== index.html ==========
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SEIKAYA — Music Producer</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Goldman&display=swap" rel="stylesheet">
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Basic meta for social previews (customize) -->
-  <meta name="description" content="SEIKAYA — music producer | discography, about, contact" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- SPLASH / INTRO - full-screen. Shows "SEIKAYA" in Orbitron then fades after JS timer -->
   <div id="splash" class="splash">
     <div class="splash-inner">
       <h1 id="splash-text">SEIKAYA</h1>
     </div>
   </div>
 
-  <!-- MAIN CONTENT (hidden while splash shows) -->
   <div id="site" class="site hidden">
-
-    <!-- Top toolbar / nav bar -->
     <header class="toolbar">
       <div class="toolbar-left">
-        <!-- SEIKAYA signature shown in Goldman font -->
-        <a class="brand" href="#">SEIKAYA</a>
+        <a class="brand" href="#home" data-page="home">SEIKAYA</a>
       </div>
       <nav class="toolbar-right">
-        <a href="#home" class="nav-link">HOME</a>
-        <a href="#about" class="nav-link">ABOUT</a>
-        <a href="#discography" class="nav-link">DISCOGRAPHY</a>
-        <a href="#contact" class="nav-link">CONTACT</a>
+        <a href="#home" data-page="home" class="nav-link">HOME</a>
+        <a href="#about" data-page="about" class="nav-link">ABOUT</a>
+        <a href="#discography" data-page="discography" class="nav-link">DISCOGRAPHY</a>
+        <a href="#contact" data-page="contact" class="nav-link">CONTACT</a>
       </nav>
     </header>
 
-    <!-- Page sections: simple, scrollable, and styled similar to the reference site -->
     <main class="content">
-
-      <section id="home" class="panel home-panel">
-        <h2 class="panel-title">HOME PAGE</h2>
-        <p class="lead">Welcome — SEIKAYA. Music producer, remixer, sound hunter.</p>
-
-        <div class="release">
-          <h3>New Release</h3>
-          <p class="release-date">2025.05.04 — KIMAGURE POTENTIAL (example)</p>
-        </div>
-      </section>
-
-      <section id="about" class="panel about-panel">
-        <h2 class="panel-title">ABOUT</h2>
-        <p>Short bio: Add your biography here. Instruments, influences, gear, or links to socials.</p>
+      <!-- Panels for SPA navigation -->
+      <section id="home" class="panel active">
+        <h2 class="panel-title">About Me</h2>
+        <p class="lead">I'm SEIKAYA, a music producer creating high-energy, genre-blending tracks inspired by Kobaryo, Camellia, and more.</p>
         <ul class="socials">
           <li><a href="#">Bandcamp</a></li>
           <li><a href="#">SoundCloud</a></li>
@@ -64,35 +39,31 @@
         </ul>
       </section>
 
-      <section id="discography" class="panel discography-panel">
+      <section id="about" class="panel">
+        <h2 class="panel-title">ABOUT</h2>
+        <p>More detailed biography or story about my journey, influences, and style.</p>
+      </section>
+
+      <section id="discography" class="panel">
         <h2 class="panel-title">DISCOGRAPHY</h2>
         <div class="records">
-          <!-- Example items; replace with your own -->
           <article class="record">
             <h4>Single — Example Track</h4>
             <time>2024.12.20</time>
           </article>
-          <article class="record">
-            <h4>Album — KIMAGURE POTENTIAL</h4>
-            <time>2025.05.04</time>
-          </article>
         </div>
       </section>
 
-      <section id="contact" class="panel contact-panel">
+      <section id="contact" class="panel">
         <h2 class="panel-title">CONTACT</h2>
-        <p>Booking / collabs: <a href="mailto:you@domain.com">you@domain.com</a></p>
+        <p>Email me at <a href="mailto:you@domain.com">you@domain.com</a></p>
       </section>
-
     </main>
 
-    <!-- Small footer -->
     <footer class="footer">
       <p>© SEIKAYA • crafted with <span aria-hidden>♥</span></p>
     </footer>
   </div>
-
-  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
