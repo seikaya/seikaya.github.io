@@ -1,69 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SEIKAYA — Music Producer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Goldman&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEIKAYA</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Goldman:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="splash" class="splash">
-    <div class="splash-inner">
-      <h1 id="splash-text">SEIKAYA</h1>
+    <!-- Splash Screen -->
+    <div id="splash">
+        <h1>SEIKAYA</h1>
     </div>
-  </div>
 
-  <div id="site" class="site hidden">
-    <header class="toolbar">
-      <div class="toolbar-left">
-        <a class="brand" href="#home" data-page="home">SEIKAYA</a>
-      </div>
-      <nav class="toolbar-right">
-        <a href="#home" data-page="home" class="nav-link">HOME</a>
-        <a href="#about" data-page="about" class="nav-link">ABOUT</a>
-        <a href="#discography" data-page="discography" class="nav-link">DISCOGRAPHY</a>
-        <a href="#contact" data-page="contact" class="nav-link">CONTACT</a>
-      </nav>
+    <!-- Background Canvas for dots -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="hidden">
+        <div class="logo">SEIKAYA</div>
+        <nav>
+            <button class="nav-btn active" data-target="home">HOME</button>
+            <button class="nav-btn" data-target="about">ABOUT</button>
+            <button class="nav-btn" data-target="discography">DISCOGRAPHY</button>
+            <button class="nav-btn" data-target="contact">CONTACT</button>
+        </nav>
     </header>
 
-    <main class="content">
-      <!-- Panels for SPA navigation -->
-      <section id="home" class="panel active">
-        <h2 class="panel-title">About Me</h2>
-        <p class="lead">I'm SEIKAYA, a music producer creating high-energy, genre-blending tracks inspired by Kobaryo, Camellia, and more.</p>
-        <ul class="socials">
-          <li><a href="#">Bandcamp</a></li>
-          <li><a href="#">SoundCloud</a></li>
-          <li><a href="#">YouTube</a></li>
-        </ul>
-      </section>
+    <!-- Page Content -->
+    <main>
+        <section id="home" class="page-section active">
+            <div class="content-box">
+                <h2>About Me</h2>
+                <p>Hello! I am SEIKAYA, an upcoming music producer making high-energy, experimental tracks inspired by Kobaryo and Camellia.</p>
+                <div class="socials">
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">SoundCloud</a>
+                </div>
+            </div>
+        </section>
 
-      <section id="about" class="panel">
-        <h2 class="panel-title">ABOUT</h2>
-        <p>More detailed biography or story about my journey, influences, and style.</p>
-      </section>
+        <section id="about" class="page-section">
+            <div class="content-box">
+                <h2>About</h2>
+                <p>This is where more detailed info about me will go.</p>
+            </div>
+        </section>
 
-      <section id="discography" class="panel">
-        <h2 class="panel-title">DISCOGRAPHY</h2>
-        <div class="records">
-          <article class="record">
-            <h4>Single — Example Track</h4>
-            <time>2024.12.20</time>
-          </article>
-        </div>
-      </section>
+        <section id="discography" class="page-section">
+            <div class="content-box">
+                <h2>Discography</h2>
+                <p>My music releases will be listed here.</p>
+            </div>
+        </section>
 
-      <section id="contact" class="panel">
-        <h2 class="panel-title">CONTACT</h2>
-        <p>Email me at <a href="mailto:you@domain.com">you@domain.com</a></p>
-      </section>
+        <section id="contact" class="page-section">
+            <div class="content-box">
+                <h2>Contact</h2>
+                <p>Email: your@email.com</p>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-      <p>© SEIKAYA • crafted with <span aria-hidden>♥</span></p>
-    </footer>
-  </div>
-  <script src="script.js"></script>
+    <!-- JS -->
+    <script src="script.js"></script>
 </body>
 </html>
