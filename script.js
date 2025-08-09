@@ -1,14 +1,15 @@
-// Splash screen logic
+// Splash screen logic with smooth fade-out
 window.addEventListener('load', () => {
     const splash = document.getElementById('splash');
     const navbar = document.getElementById('navbar');
 
     setTimeout(() => {
-        splash.style.opacity = '0';
-        setTimeout(() => {
+        splash.classList.add('fade-out');
+        // Wait for CSS fade-out transition to finish before hiding splash & showing navbar
+        splash.addEventListener('transitionend', () => {
             splash.style.display = 'none';
             navbar.classList.add('show');
-        }, 500);
+        }, { once: true });
     }, 3000);
 });
 
@@ -71,7 +72,7 @@ class Dot {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha.toFixed(2)})`;
         ctx.fill();
     }
 }
