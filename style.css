@@ -24,6 +24,13 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 100;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+#splash.fade-out {
+    opacity: 0;
+    pointer-events: none;
 }
 
 #splash h1 {
