@@ -5,7 +5,6 @@ window.addEventListener('load', () => {
 
     setTimeout(() => {
         splash.classList.add('fade-out');
-        // Wait for CSS fade-out transition to finish before hiding splash & showing navbar
         splash.addEventListener('transitionend', () => {
             splash.style.display = 'none';
             navbar.classList.add('show');
@@ -13,7 +12,7 @@ window.addEventListener('load', () => {
     }, 3000);
 });
 
-// Navigation logic
+// Navigation logiccc
 const navButtons = document.querySelectorAll('.nav-btn');
 const sections = document.querySelectorAll('.page-section');
 
@@ -21,11 +20,9 @@ navButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         const targetId = btn.getAttribute('data-target');
 
-        // Update active button
         navButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Smooth section change
         sections.forEach(sec => {
             if (sec.id === targetId) {
                 sec.classList.add('active');
@@ -36,7 +33,7 @@ navButtons.forEach(btn => {
     });
 });
 
-// Background dots animation
+// Background dots animations
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let dots = [];
@@ -51,32 +48,46 @@ window.addEventListener('resize', resizeCanvas);
 class Dot {
     constructor() {
         this.reset();
+        // Randomly start faded in or out..
+        this.alpha = Math.random();
+        this.fadeIn = Math.random() < 0.5;
+        // Random fade speed per dot (makes them twinkle asynchronously!)
+        this.fadeSpeedIn = 0.005 + Math.random() * 0.015;   // 0.005 to 0.02
+        this.fadeSpeedOut = 0.002 + Math.random() * 0.01;   // 0.002 to 0.012
     }
     reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2 + 1;
-        this.alpha = 0;
-        this.fadeIn = true;
-        this.speed = Math.random() * 0.5 + 0.2;
+        // Alpha & fadeIn handled in constructor!
     }
     update() {
         if (this.fadeIn) {
-            this.alpha += 0.01;
-            if (this.alpha >= 1) this.fadeIn = false;
+            this.alpha += this.fadeSpeedIn;
+            if (this.alpha >= 1) {
+                this.alpha = 1;
+                this.fadeIn = false;
+            }
         } else {
-            this.alpha -= 0.005;
-            if (this.alpha <= 0) this.reset();
+            this.alpha -= this.fadeSpeedOut;
+            if (this.alpha <= 0) {
+                this.alpha = 0;
+                this.reset();
+                this.fadeIn = true;
+            }
         }
     }
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha.toFixed(2)})`;
+        ctx.shadowColor = `rgba(255, 255, 255, ${this.alpha.toFixed(2)})`;
+        ctx.shadowBlur = this.size * 2;
         ctx.fill();
     }
 }
 
+dots = [];
 for (let i = 0; i < 100; i++) {
     dots.push(new Dot());
 }
