@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
             splash.style.display = 'none';
             navbar.classList.add('show');
         }, { once: true });
-    }, 3000);
+    }, 2000);
 });
 
 // Navigation logiccc
