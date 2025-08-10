@@ -151,6 +151,7 @@ main {
 }
 
 .content-box {
+    font-family: 'Montserrat', sans-serif;
     background: rgba(255, 255, 255, 0.05);
     padding: 30px;
     border-radius: 12px;
