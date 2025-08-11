@@ -1,4 +1,4 @@
-// Splash screen logic with smooth fade-out
+// Splash screen logic with smooth fade-out..
 window.addEventListener('load', () => {
     const splash = document.getElementById('splash');
     const navbar = document.getElementById('navbar');
@@ -33,7 +33,7 @@ navButtons.forEach(btn => {
     });
 });
 
-// Background dots animations
+// Background dots animations and such
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let dots = [];
@@ -101,3 +101,4 @@ function animateDots() {
     requestAnimationFrame(animateDots);
 }
 animateDots();
+// Meh
